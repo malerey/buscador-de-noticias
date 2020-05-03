@@ -37,6 +37,7 @@ const Div = styled.div`
  }
 `;
 
+// excelente esta solucion para los colores!!!!
 const sourceBackgroundColor = {
  'Google News (Argentina)': 'red',
  'Infobae': 'orange',
@@ -63,7 +64,11 @@ const Card = ({noticia}) => {
 
  return (
   <Article>
+  {/* Privilegia nombres descriptivos, como ImgContainer, antes que nombres genericos como Div */}
    <Div>
+   Aca no estas poniendo un alt en tu imagen, con una doble consecuencia: un usuario que usa un lector
+   de pantalla no sabrá a qué refiere la imagen, y tenés un warning feo en la consola. Corregilo asi:
+   {/* <img src={noticia.urlToImage} alt={noticia.source.name}/> */}
    <img src={noticia.urlToImage} />
    </Div>
    <div>

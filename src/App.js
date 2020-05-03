@@ -6,12 +6,14 @@ import CardsContainer from './components/CardsContainer';
 import Footer from './components/Footer';
 
 const App = () => {
-
   const [news, setNews] = useState([]);
   
   useEffect(() => {
     fetch(`http://newsapi.org/v2/top-headlines?country=ar&apiKey=API_KEY`)
       .then(res => res.json())
+      // privilegia escribir las funciones de manera breve, ya que ayuda a la legibilidad. En este caso, 
+      // y en todos tus fetch, asi:
+      // then(data => setNews(data.articles));
       .then(data => {
         setNews(data.articles);
       })
@@ -32,6 +34,11 @@ const App = () => {
         setNews(data.articles);
       }) 
   };
+
+  // En este componente tenemos tres funciones que basicamente hacen lo mismo: 
+  // hacer un fetch a una URL y guardar el resultado en el estado "news". 
+  // Idealmente, deberia ser una sola funcion que reciba via parametros la url.
+  // Consultame si esto te trae dudas. 
 
   return (
     <Router>

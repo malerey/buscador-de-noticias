@@ -69,6 +69,13 @@ const Nav = ({ filtroFuente, busqueda }) => {
     setSearchInput(e.target.value);
   }  
 
+  // Cada uno de los Links es un codigo muy similar - cambia el estilado, el id y el link, pero 
+  // la estructura es la misma. Deberian ser el mismo componente llamado 4 veces, 
+  // y las props controlan las diferencias. 
+  // Por ejemplo:
+  //   <NavLink link="./source/google-news-ar" id="google-news-ar" onClick={filtroFuente} color="red"/>
+  //   <NavLink link="./source/la-gaceta" id="la-gaceta" onClick={filtroFuente} color="green"/>
+  // etc. 
   return (
     <NavBar>
       <h2>JOURNAL NEWS</h2>
